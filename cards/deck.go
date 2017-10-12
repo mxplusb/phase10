@@ -2,6 +2,7 @@ package cards
 
 import (
 	"math/rand"
+	"errors"
 )
 
 type Color int
@@ -26,6 +27,14 @@ type Card struct {
 	Color Color
 	Wild  Wilder
 	Skip  Skipper
+}
+
+func (c *Card) TransformWild(t int) error {
+	if !c.Wild {
+		return errors.New("cannot transform this card as it is not a wild")
+	}
+	c.Value = t
+	return nil
 }
 
 // Phase 10 deck

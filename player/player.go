@@ -23,3 +23,8 @@ func (p *Player) InitialDraw(d *cards.Deck) {
 		p.Hand = append(p.Hand, d.Draw())
 	}
 }
+
+// Draw retrieves one card from the deck and places it in the Player's hand.
+func (p *Player) Draw(d *cards.Deck) {
+	p.Hand = append(p.Hand, d.Draw())
+}
